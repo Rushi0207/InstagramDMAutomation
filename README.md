@@ -1,7 +1,16 @@
 # Instagram Auto-Reply Automation Tool
 
-## 📌 Project Overview
-This full-stack project is an **Instagram Auto-Reply Automation Tool** that automatically replies to Instagram comments based on pre-defined keywords. It also provides analytics and keyword management features.
+## 📌 Introduction
+The **Instagram Auto-Reply Automation Tool** is a full-stack web application designed to streamline interactions on Instagram by automatically responding to comments based on predefined keywords. This tool is particularly useful for businesses, influencers, and content creators who want to maintain engagement with their audience while reducing manual effort. Additionally, it provides analytics and keyword management features to enhance Instagram marketing strategies.
+
+With this tool, users can:
+- **Automate Instagram comment replies** based on specific keywords.
+- **Manage a list of keywords** to tailor responses effectively.
+- **Analyze engagement metrics** using Instagram Graph API.
+- **Secure authentication via Instagram OAuth** for seamless login.
+- **Monitor and track conversations** in an easy-to-use dashboard.
+
+This project leverages **React** for the frontend and **Node.js with Express** for the backend, connected to a **MongoDB database** to store user data and keywords. Authentication is handled through **Instagram OAuth**, ensuring security and ease of use.
 
 ---
 
