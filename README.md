@@ -12,6 +12,8 @@ With this tool, users can:
 
 This project leverages **React** for the frontend and **Node.js with Express** for the backend, connected to a **MongoDB database** to store user data and keywords. Authentication is handled through **Instagram OAuth**, ensuring security and ease of use.
 
+GitHub Repository: [InstagramDMAutomation](https://github.com/Rushi0207/InstagramDMAutomation)
+
 ---
 
 ## 🚀 Tech Stack
@@ -34,8 +36,8 @@ Ensure you have the following installed:
 
 ### 📥 Clone the Repository
 ```sh
-git clone https://github.com/yourusername/instagram-auto-reply.git
-cd instagram-auto-reply
+git clone https://github.com/Rushi0207/InstagramDMAutomation.git
+cd InstagramDMAutomation
 ```
 
 ### 📦 Install Dependencies
@@ -50,8 +52,10 @@ cd frontend
 npm install
 ```
 
-### 🔑 Environment Variables (.env)
-Create a `.env` file in the **backend** folder and add:
+---
+
+## 🔑 Environment Variables (.env)
+### Backend (`backend/.env`)
 ```env
 INSTAGRAM_CLIENT_ID=your_instagram_client_id
 INSTAGRAM_CLIENT_SECRET=your_instagram_client_secret
@@ -59,6 +63,13 @@ INSTAGRAM_REDIRECT_URI=http://localhost:5173/auth/instagram/callback
 MONGO_URI=mongodb://localhost:27017/instagram_auto_reply
 JWT_SECRET=your_jwt_secret
 PORT=5000
+```
+
+### Frontend (`frontend/.env`)
+```env
+VITE_INSTAGRAM_CLIENT_ID=your_instagram_client_id
+VITE_INSTAGRAM_REDIRECT_URI=http://localhost:5173/auth/instagram/callback
+VITE_BACKEND_URL=http://localhost:5000
 ```
 
 ---
@@ -81,12 +92,37 @@ Frontend runs on: `http://localhost:5173`
 
 ---
 
-## 🔐 Authentication Flow
-1. User clicks "Login with Instagram".
-2. Redirects to Instagram OAuth (`https://api.instagram.com/oauth/authorize`).
-3. User approves permissions → **receives authorization code**.
-4. Backend exchanges code for **access token** (`/oauth/access_token`).
-5. Access token is used for API requests.
+## 🔐 How to Create an Instagram API
+1. **Create a Facebook Developer Account**
+   - Go to [Meta for Developers](https://developers.facebook.com/)
+   - Click on **My Apps** → **Create App**
+   - Select **Consumer** as the app type
+
+2. **Configure Instagram API**
+   - In your app dashboard, go to **Add Products** → Select **Instagram**
+   - Click **Set Up** under Instagram Graph API
+
+3. **Create an Instagram App**
+   - Go to **Instagram Basic Display** → Click **Create New App**
+   - Add the necessary **redirect URIs** under **OAuth Settings**
+
+4. **Get API Credentials**
+   - Navigate to **Settings → Basic** and copy **App ID** and **App Secret**
+   - In **Instagram Basic Display**, generate a **User Token**
+
+5. **Set Permissions**
+   - Ensure the following permissions are enabled: `user_profile`, `user_media`
+
+6. **Generate an Access Token**
+   - Use the following API request to exchange the authorization code for an access token:
+   ```sh
+   curl -X POST "https://api.instagram.com/oauth/access_token" \
+   -d "client_id=YOUR_CLIENT_ID" \
+   -d "client_secret=YOUR_CLIENT_SECRET" \
+   -d "grant_type=authorization_code" \
+   -d "redirect_uri=YOUR_REDIRECT_URI" \
+   -d "code=YOUR_AUTHORIZATION_CODE"
+   ```
 
 ---
 
