@@ -189,4 +189,4 @@ This project is open-source and available under the MIT License.
 ---
 
 ## 🎉 Acknowledgements
-Special thanks to the Instagram Graph API documentation and OpenAI for assistance!
+Special thanks to the Instagram Graph API documentation!
